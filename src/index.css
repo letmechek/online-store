@@ -21,8 +21,8 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
-  padding: 2vmin;
+  background-color:  white;
+  /* padding: 2vmin; */
   height: 100vh;
 }
 
@@ -79,14 +79,19 @@ code {
 }
 
 .form-container {
-  padding: 3vmin;
-  background-color: var(--tan-1);
-  border: .1vmin solid var(--tan-3);
-  border-radius: 1vmin;
+  background: padding-box;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  gap: 1.25vmin;
+  justify-items: end;
+  align-items: center;
+  background-image: url('https://media.istockphoto.com/photos/colorful-paper-shopping-bags-isolated-on-white-picture-id515058690?k=6&m=515058690&s=170667a&w=0&h=n46OXcYHQwfpwubKGXCfxMP9zqRvJnCNrFE_SvD6blY=');
+  background-repeat: space;
 }
-
 p.error-message {
-  color: var(--orange);
+  color: red;
   text-align: center;
 }
 
@@ -94,7 +99,7 @@ form {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
-  color: var(--text-light);
+  color: black;
 }
 
 label {
@@ -118,10 +123,10 @@ input:focus {
 }
 
 button, a.button {
-  margin: 1vmin;
+  margin: -2.5%;
   padding: 1vmin;
-  color: var(--white);
-  background-color: var(--orange);
+  color: black;
+  background-color: linear-gradient(45deg, #9d8c8f, #3F5EFB);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
@@ -144,10 +149,29 @@ button.btn-xs {
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: linear-gradient(45deg, #231f20, #3F5EFB);
 }
 
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
+}
+
+nav, a {
+  background-color: white;
+  padding: 1%;
+  color: black;
+  text-decoration: none;
+  
+}
+.username {
+  margin-left: 70%;
+}
+
+.sandwichbtn {
+  max-width: 3%;
+}
+
+.sandwich {
+  max-width: 100%;
 }

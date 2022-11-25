@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const ensureLoggedIn = require('./config/ensureLoggedIn');
 
 require('dotenv').config()
 require('./config/database')
@@ -16,7 +17,10 @@ app.use(express.static(path.join(__dirname, 'build')))
 
 app.use(require('./config/checkToken'))
 
+app.use('/api/seed', require('./routes/api/seedRoutes'))
 app.use('/api/users', require('./routes/api/users'))
+app.use('/api/products', require('./routes/api/products'))
+app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'));
 
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))

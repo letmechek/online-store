@@ -2,13 +2,13 @@ import './Logo.css';
 
 export default function Logo() {
   return (
-    <div class="wrapper">
-    <div class="circ1"></div>
-    <div class="circ2"></div>
-    <div class="circ3"></div>
-    <div class="circ4"></div>
-    <h1 class="moon">SAM</h1>
-    <p class="detail">SPORTS</p>
+    <div className="wrapper">
+    <div className="circ1"></div>
+    <div className="circ2"></div>
+    <div className="circ3"></div>
+    <div className="circ4"></div>
+    <h1 className="moon">SAM</h1>
+    <p className="detail">SPORTS</p>
   </div>
   );
 }

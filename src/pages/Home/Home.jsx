@@ -1,10 +1,10 @@
 import Logo from "../../components/Logo/Logo"
 
-export default function(){
+export default function Home(){
     return (
     <>
     
-    <Logo />s
+    <Logo />
     </>
     )
 }

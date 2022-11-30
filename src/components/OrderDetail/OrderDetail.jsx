@@ -1,20 +1,28 @@
 import './OrderDetail.css';
 import LineItem from '../LineItem/LineItem';
-
+import { useState } from 'react';
 // Used to display the details of any order, including the cart (unpaid order)
 export default function OrderDetail({ order, handleChangeQty, handleCheckout }) {
+  const [navbarOpen, setNavbarOpen] = useState(false)
   if (!order) return null;
 
-  const lineItems = order.lineItems.map(item =>
+  const lineItems = order.lineItems.map(product =>
     <LineItem
-      lineItem={item}
+      lineItem={product}
       isPaid={order.isPaid}
-      key={item._id}
+      key={product._id}
       handleChangeQty={handleChangeQty}
     />
   );
+  const handleToggle = () => {
+    setNavbarOpen(!navbarOpen)
+  }
 
-  return (
+  return (<>
+    <nav className="navBar1" >
+        <button className="sandwichbtn1" onClick={handleToggle}>🛒</button>
+        <div className={`menuNav1 ${navbarOpen ? " showMenu1" : ""}`}> 
+        <nav>
     <div className="OrderDetail">
       <div className="section-heading">
         {order.isPaid ?
@@ -43,9 +51,13 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
             </section>
           </>
           :
-          <div className="hungry">Hungry?</div>
+          <div className="hungry">cart is empty?</div>
         }
       </div>
     </div>
+    </nav>
+    </div>
+      </nav>
+      </>
   );
 }

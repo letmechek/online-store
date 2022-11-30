@@ -7,6 +7,7 @@ export default function ProductPage(){
     return (
         <div>
             <h1>{pid}</h1>
+            
         </div>
     )
 }

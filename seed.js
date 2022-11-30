@@ -1,5 +1,5 @@
-import { faker } from 'faker';
-import {Product} from './models/product';
+// import { faker } from 'faker';
+// import {Product} from './models/product';
 
 // export const seedProducts = async () {
 // try {
@@ -14,13 +14,13 @@ import {Product} from './models/product';
 //                 pid: faker.lorem.slug(),
 //                 image:faker.image.image(),
 //                 brand: faker.random.word(),
-//                 category: faker.random.word(),
 //                 description: faker.random.word(),
 //                 price: faker.random.number()
 
 //             })
 //         )
 //     }
+//                 
 
 
 // } catch (error) {
@@ -29,3 +29,35 @@ import {Product} from './models/product';
 // }
 
 // seedProducts()
+
+
+require('dotenv').config();
+require('./config/database');
+
+const Category = require('./models/category');
+const Product = require('./models/product');
+
+(async function() {
+
+  await Category.deleteMany({});
+  const categories = await Category.create([
+      {name: 'boys', sortOrder: 20},
+      {name: 'girls', sortOrder: 10},
+  ]);
+
+  await Product.deleteMany({});
+  const products = await Product.create([
+    {name: 'loose fit shirt', image: '/images/tight.jpeg', category: categories[0], price: 100},
+    {name: 'baggy fit shirt', image: '/images/loose-fit.jpeg', category: categories[0], price: 200},
+    {name: 'tight fit shirt', image: '/images/tight.jpeg', category: categories[0], price: 395},
+    {name: 'dress', image: '/images/tight.jpeg', category: categories[1], price: 145},
+    {name: 'loose skirt', image: '/images/loose-fit.jpeg', category: categories[1], price: 135},
+    {name: 'red dress', image: '/images/tight.jpeg', category: categories[1], price: 255},
+  ]);
+
+  console.log(products)
+
+  process.exit();
+
+})();
+

@@ -20,7 +20,7 @@ export default function NavBar({ user, setUser }) {
         Welcome, {user.name}
         <Link to="/">Home</Link>
 
-        <Link to="/orders/new">Catalogue</Link>
+        <Link to="/products/new">Catalogue</Link>
         
         <Link to="/orders">Order History</Link>
         

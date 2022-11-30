@@ -8,7 +8,7 @@ import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'
 import NavBar from '../../components/NavBar/NavBar'
 import Home from '../Home/Home';
 
-import ProductPage from '../ProductPage/ProductPage';
+// import ProductPage from '../ProductPage/ProductPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser())
@@ -20,8 +20,8 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             
-            <Route path="/products/:pid" element={<ProductPage user={user} setUser={setUser} />} />
-            <Route path="/orders/new" element={<Catalogue user={user} setUser={setUser} />} />
+            {/* <Route path="/products/:id" element={<ProductPage user={user} setUser={setUser} />} /> */}
+            <Route path="/products/new" element={<Catalogue user={user} setUser={setUser} />} />
             <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser} />} />
             <Route path="/" element={<Home />} />
           </Routes>

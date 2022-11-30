@@ -1,43 +1,61 @@
-import { Link } from 'react-router-dom';
 import './Catalogue.css'
-import data from '../../data'
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import {  useNavigate } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
+import * as productsAPI from '../../utilities/products-api'
+import * as ordersAPI from '../../utilities/orders-api'
+import MenuList from '../../components/MenuList/MenuList';
+import CategoryList from '../../components/CategoryList/CategoryList';
+import OrderDetail from '../../components/OrderDetail/OrderDetail';
 
 export default function Catalogue() {
- const[products, setProducts] = useState([])
- useEffect(() =>{
-  const fetchData = async () => {
-    const result = await axios.get('/api/products')
-    setProducts(result.data)
-  }
-  fetchData()
- }, []);
+ const [ productItems, setProductItems ] = useState([])
+ const [ activeCat, setActiveCat ] = useState('')
+ const [ cart, setCart ] = useState(null)
+ const categoriesRef = useRef([])
+ const navigate = useNavigate()
 
+ useEffect(function() {
+     (async function() {
+         const products = await productsAPI.getAll()
+         categoriesRef.current = [...new Set(products.map(product => product.category.name))]
+         setProductItems(products)
+         setActiveCat(categoriesRef.current[0])
+     })();
+     (async function() {
+         const cart = await ordersAPI.getCart()
+         setCart(cart)
+     })();
+ }, [])
+ async function handleAddToOrder(productId) {
+  const updatedCart = await ordersAPI.addItemToCart(productId)
+  setCart(updatedCart)
+}
+
+async function handleChangeQty(productId, newQty) {
+  const updatedCart = await ordersAPI.setItemQtyInCart(productId, newQty)
+  setCart(updatedCart)
+}
+
+async function handleCheckout() {
+  await ordersAPI.checkout()
+  navigate('/orders')
+}
 
   
     return (
       <>
        
         <h1>Catalogue</h1>
-        <div className="product">
-          {data.products.map((product) => (
-            <div className="product" key={product.pid}>
-             <Link to={`/products/${product.pid}`}>
-              <img src={product.image} alt={product.name} />
-              </Link>
-              <div className="product-info">
-                <Link to={`/products/${product.pid}`}>
-                <p>{product.name}</p>
-                </Link>
-                <p>{product.price}</p>
-                <button>add to cart</button>
-              </div>
-              </div>
-          ))}
-        </div>
-       
-       
+            <OrderDetail order={cart} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout}/>
+        <CategoryList
+                    categories={categoriesRef.current}
+                    activeCat={activeCat}
+                    setActiveCat={setActiveCat}
+                />
+                <MenuList
+                productItems={productItems.filter(product => product.category.name === activeCat)}
+                handleAddToOrder={handleAddToOrder}
+            />
       </>
     )
 }

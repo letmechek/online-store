@@ -33,6 +33,7 @@ code {
 
 #root {
   height: 100%;
+  /* padding-left: 20%; */
 }
 
 .align-ctr {

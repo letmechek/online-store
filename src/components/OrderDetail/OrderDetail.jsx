@@ -3,7 +3,8 @@ import LineItem from '../LineItem/LineItem';
 import { useState } from 'react';
 // Used to display the details of any order, including the cart (unpaid order)
 export default function OrderDetail({ order, handleChangeQty, handleCheckout }) {
-  const [navbarOpen, setNavbarOpen] = useState(false)
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  
   if (!order) return null;
 
   const lineItems = order.lineItems.map(product =>
@@ -20,7 +21,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
 
   return (<>
     <nav className="navBar1" >
-        <button className="sandwichbtn1" onClick={handleToggle}>🛒</button>
+        <button className="sandwichbtn1" onClick={handleToggle}><i class="gg-shopping-bag"></i></button>
         <div className={`menuNav1 ${navbarOpen ? " showMenu1" : ""}`}> 
         <nav>
     <div className="OrderDetail">
@@ -41,7 +42,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
                 <span className="right">TOTAL&nbsp;&nbsp;</span>
                 :
                 <button
-                  className="btn-sm"
+                  className="btn-checkout"
                   onClick={handleCheckout}
                   disabled={!lineItems.length}
                 >CHECKOUT</button>

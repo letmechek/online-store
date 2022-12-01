@@ -2,7 +2,9 @@
     color: var(--text-light);
     list-style: none;
     padding: 0;
-    font-size: 1.7vw;
+    font-size: 1.2vw;
+    display: inline-flex;
+    flex-direction: row-reverse;
   }
   
   .CategoryList li {
@@ -19,7 +21,15 @@
   }
   
   .CategoryList li.active {
-    color: var(--text-dark);
+    color: #d6d5d5;;
     background-color: var(--tan-1);
     border: .1vmin solid var(--tan-3);
+  }
+
+  .btn-xs{
+    margin: 1%;
+  }
+
+  .imgcart {
+    max-width: 20%;
   }

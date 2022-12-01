@@ -8,7 +8,7 @@ export default function Logo() {
     <div className="circ3"></div>
     <div className="circ4"></div>
     <h1 className="moon">SAM</h1>
-    <p className="detail">SPORTS</p>
+    <p className="detail">STREETWEAR</p>
   </div>
   );
 }

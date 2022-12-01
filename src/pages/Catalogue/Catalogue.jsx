@@ -3,7 +3,7 @@ import {  useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import * as productsAPI from '../../utilities/products-api'
 import * as ordersAPI from '../../utilities/orders-api'
-import MenuList from '../../components/MenuList/MenuList';
+import CatalogueList from '../../components/CatalogueList/CatalogueList';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 
@@ -45,14 +45,14 @@ async function handleCheckout() {
     return (
       <>
        
-        <h1>Catalogue</h1>
+        
             <OrderDetail order={cart} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout}/>
         <CategoryList
                     categories={categoriesRef.current}
                     activeCat={activeCat}
                     setActiveCat={setActiveCat}
                 />
-                <MenuList
+                <CatalogueList
                 productItems={productItems.filter(product => product.category.name === activeCat)}
                 handleAddToOrder={handleAddToOrder}
             />

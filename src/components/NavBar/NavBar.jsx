@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import * as userService from '../../utilities/users-service'
 import React, { useState } from "react"
+import './NavBar.css'
 
 
 export default function NavBar({ user, setUser }) {
@@ -15,14 +16,14 @@ export default function NavBar({ user, setUser }) {
 
     return (
         <nav className="navBar" >
-        <button className="sandwichbtn" onClick={handleToggle}><img className="sandwich" src="https://logodix.com/logo/1038930.png"alt=''/></button>
+        <button className="sandwichbtn" onClick={handleToggle}><i class="gg-format-justify"></i></button>
         <ul className={`menuNav ${navbarOpen ? " showMenu" : ""}`}> <nav>
         Welcome, {user.name}
         <Link to="/">Home</Link>
-
+        
         <Link to="/products/new">Catalogue</Link>
         
-        <Link to="/orders">Order History</Link>
+        {/* <Link to="/orders">Order History</Link> */}
         
         
         <Link to="" onClick={handleLogOut}>Log Out</Link>

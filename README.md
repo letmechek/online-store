@@ -11,8 +11,8 @@ A Full-Stack Ecommerce App
 </ul>
 
 <h1>Deployed App</h1>
-<li><a href=https://sams-streetwear.herokuapp.com>Sams StreetWear</a></li>
-<li>Used Heroku</li>
+<li>deployed with heroku = <a href=https://sams-streetwear.herokuapp.com>Sams StreetWear</a></li>
+
 
 <h1>Technologies Used </h1>
 <ul>

@@ -10,6 +10,9 @@ A Full-Stack Ecommerce App
   <li>Resizable app, works on mobile and desktop</li>
 </ul>
 
+<h1>Deployed App</h1>
+<li><a href=https://sams-streetwear.herokuapp.com>Sams StreetWear</a></li>
+
 <h1>Technologies Used </h1>
 <ul>
   <li>MongoDB/Mongoose</li>

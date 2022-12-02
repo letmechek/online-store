@@ -12,6 +12,7 @@ A Full-Stack Ecommerce App
 
 <h1>Deployed App</h1>
 <li><a href=https://sams-streetwear.herokuapp.com>Sams StreetWear</a></li>
+<li>Used Heroku</li>
 
 <h1>Technologies Used </h1>
 <ul>

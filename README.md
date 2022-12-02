@@ -21,3 +21,8 @@ A Full-Stack Ecommerce App
   <li>CSS</li>
 
 </ul>
+
+<h1>Future Enhancements</h1>
+<ul>
+  <li>Accept Payments</li>
+</ul>

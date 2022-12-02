@@ -1,0 +1,15 @@
+
+
+.login {
+    max-height: 100vh;
+    overflow-Y: auto;
+    float: left;
+    margin: 0 auto;
+    /* background-color: red; */
+    
+}
+
+.pic {
+    /* background-image: url('https://simonwebdesign.com/wp-content/uploads/5-cool-backgrounds_0002_bg3.jpg'); */
+    /* background-color: red; */
+}

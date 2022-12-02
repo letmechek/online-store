@@ -7,4 +7,5 @@ router.get('/', productsCtrl.index);
 
 router.get('/:id', productsCtrl.show);
 
+
 module.exports = router

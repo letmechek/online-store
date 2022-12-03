@@ -7,7 +7,6 @@ A Full-Stack Ecommerce App
 <h1>Key Features </h1>
 <ul>
   <li>Full Crud Shopping Cart</li>
-  <li>Resizable app, works on mobile and desktop</li>
 </ul>
 
 <h1>Deployed App</h1>
@@ -29,4 +28,5 @@ A Full-Stack Ecommerce App
 <h1>Future Enhancements</h1>
 <ul>
   <li>Accept Payments</li>
+  <li>mobile friendly layout</li>
 </ul>

@@ -43,7 +43,7 @@
 .navBar button {
   position: fixed;
   left: 51px;
-  top: 64px;
+  /* top: 64px; */
   z-index: 10;
   cursor: pointer;
 }

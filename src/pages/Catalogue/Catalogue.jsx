@@ -47,11 +47,8 @@ async function handleCheckout() {
     return (
       <>
        <Stack spacing={2}>
-      
-      <Pagination count={10} color="primary" />
-      
+      <Pagination count={productItems.length} color="primary" />
     </Stack>
-        
             <OrderDetail order={cart} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout}/>
         <CategoryList
                     categories={categoriesRef.current}
@@ -65,3 +62,6 @@ async function handleCheckout() {
       </>
     )
 }
+      
+        
+      

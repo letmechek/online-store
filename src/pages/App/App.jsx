@@ -7,6 +7,8 @@ import Catalogue from '../Catalogue/Catalogue'
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'
 import NavBar from '../../components/NavBar/NavBar'
 import Home from '../Home/Home';
+import SignUpForm from '../../components/SignUpForm/SignUpForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 
 
 export default function App() {
@@ -27,7 +29,12 @@ export default function App() {
           </Routes>
         </>
         :
-        <AuthPage setUser={setUser}/>
+        <Routes>
+          <Route path='/signup' element={<SignUpForm setUser={setUser}/>} />
+          <Route path='/' element={<LoginForm setUser={setUser}/>} />
+        </Routes>
+        // <AuthPage setUser={setUser}/>
+        // <SignUpForm />
       }
     </main>
   );

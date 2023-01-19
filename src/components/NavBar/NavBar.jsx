@@ -10,6 +10,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import * as userService from '../../utilities/users-service'
 import { Link } from 'react-router-dom'
+import MenuIcon from '@mui/icons-material/Menu';
 // import InboxIcon from '@mui/icons-material/MoveToInbox';
 // import MailIcon from '@mui/icons-material/Mail';
 
@@ -57,7 +58,7 @@ export default function TemporaryDrawer({user, setUser}) {
         ].map((item, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton>
-              <ListItemText primary={item} />
+              {item}
             </ListItemButton>
           </ListItem>
         ))}
@@ -68,9 +69,10 @@ export default function TemporaryDrawer({user, setUser}) {
 
   return (
     <div>
-      {['left', 'right', 'top', 'bottom'].map((anchor) => (
+      {['.'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <Button onClick={toggleDrawer(anchor, true)}>
+            <MenuIcon/>{anchor}</Button>
           <Drawer
             anchor={anchor}
             open={state[anchor]}
@@ -83,7 +85,7 @@ export default function TemporaryDrawer({user, setUser}) {
     </div>
   );
 }
-
+// ['left', 'right', 'top', 'bottom']
 
 
 

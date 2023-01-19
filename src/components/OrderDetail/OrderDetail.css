@@ -55,13 +55,13 @@
     max-width: 100%;
   }
 
-  nav, a {
+  /* nav, a {
     background-color: white;
     padding: 1%;
     color: black;
     text-decoration: none;
     
-  }
+  } */
 
   .navBar1 {
     position: relative;
@@ -99,12 +99,10 @@
   }
   
   a {
-    display: block;
-    padding: 10px 40px;
     text-decoration: none;
     color: black;
     text-transform: uppercase;
-    font-weight: bold;
+    
   }
   
   .menuNav1 li:first-child {

@@ -6,6 +6,8 @@ import * as ordersAPI from '../../utilities/orders-api'
 import CatalogueList from '../../components/CatalogueList/CatalogueList';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 export default function Catalogue() {
  const [ productItems, setProductItems ] = useState([])
@@ -44,7 +46,11 @@ async function handleCheckout() {
   
     return (
       <>
-       
+       <Stack spacing={2}>
+      
+      <Pagination count={10} color="primary" />
+      
+    </Stack>
         
             <OrderDetail order={cart} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout}/>
         <CategoryList

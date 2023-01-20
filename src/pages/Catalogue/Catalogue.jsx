@@ -46,15 +46,15 @@ async function handleCheckout() {
   
     return (
       <>
-       <Stack spacing={2}>
-      <Pagination count={productItems.length} color="primary" />
-    </Stack>
             <OrderDetail order={cart} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout}/>
         <CategoryList
                     categories={categoriesRef.current}
                     activeCat={activeCat}
                     setActiveCat={setActiveCat}
                 />
+       <Stack spacing={2}>
+      <Pagination count={productItems.length} color="primary" />
+    </Stack>
                 <CatalogueList
                 productItems={productItems.filter(product => product.category.name === activeCat)}
                 handleAddToOrder={handleAddToOrder}

@@ -11,6 +11,8 @@ import ListItemText from '@mui/material/ListItemText';
 import * as userService from '../../utilities/users-service'
 import { Link } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu';
+import LogoutIcon from '@mui/icons-material/Logout';
+import HomeIcon from '@mui/icons-material/Home';
 // import InboxIcon from '@mui/icons-material/MoveToInbox';
 // import MailIcon from '@mui/icons-material/Mail';
 
@@ -52,9 +54,9 @@ export default function TemporaryDrawer({user, setUser}) {
       <Divider />
       <List>
         {[
-          <Link to="/">Home</Link>, 
-          <Link to="/products/new">Catalogue</Link>, 
-          <Link to="" onClick={handleLogOut}>Log Out</Link>
+          <Link to="/"><HomeIcon/></Link>, 
+          <Link to="/products">Catalogue</Link>, 
+          <Link to="" onClick={handleLogOut}><LogoutIcon/></Link>
         ].map((item, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton>

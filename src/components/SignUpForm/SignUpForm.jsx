@@ -155,7 +155,11 @@ export default function SignUpForm({ setUser }) {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link onClick={()=> navigate('/')} variant="body2">
+                <Link onClick={()=> navigate('/')} variant="body2"
+                 sx={{
+                  cursor: 'pointer',
+                   textDecoration: 'none' 
+                   }}>
                   Already have an account? Sign in
                 </Link>
               </Grid>

@@ -175,6 +175,8 @@ body {
   font-family: 'PT Sans', sans-serif;
   font-size: 18px;
   color: #252525;
+  padding: 2%;
+  background-color: white;
 }
 
 .info-inner .p-company {

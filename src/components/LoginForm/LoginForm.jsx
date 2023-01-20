@@ -129,12 +129,16 @@ export default function LoginForm({ setUser}) {
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
-                  Forgot password?
+                  {'Forgot password? '}
                 </Link>
                   </Grid>
                     <Grid item>
-                      <Link onClick={()=> navigate('/signup')} variant="body2">
-                      {"Don't have an account? Sign Up"}
+                    <Link onClick={()=> navigate('/signup')} variant="body2"
+                       sx={{
+                         cursor: 'pointer', 
+                         textDecoration: 'none' 
+                         }}>
+                      {" Don't have an account? Sign Up"}
                       </Link>
                         </Grid>
                           </Grid>

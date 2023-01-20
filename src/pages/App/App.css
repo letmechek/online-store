@@ -26,10 +26,10 @@
 
 a {
   display: block;
-  padding: 10px 40px;
+  
   text-decoration: none;
   color: black;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   /* font-weight: bold; */
 }
 /* 

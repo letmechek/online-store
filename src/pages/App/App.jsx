@@ -22,7 +22,7 @@ export default function App() {
           <Routes>
             
             
-            <Route path="/products/new" element={<Catalogue user={user} setUser={setUser} />} />
+            <Route path="/products" element={<Catalogue user={user} setUser={setUser} />} />
             <Route path="/orders" element={<OrderHistoryPage  />} />
             <Route path="/" element={<Home />} />
             

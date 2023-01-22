@@ -9,6 +9,7 @@ import NavBar from '../../components/NavBar/NavBar'
 import Home from '../Home/Home';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
+import Footer from '../../components/Footer/Footer';
 
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             
           </Routes>
+          <Footer />
         </>
         :
         <Routes>

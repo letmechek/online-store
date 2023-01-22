@@ -73,7 +73,12 @@ export default function TemporaryDrawer({user, setUser}) {
     <div>
       {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
-         <Button style={{position:"absolute", top:"10px", left:"10px", color: 'black', zIndex: '999'}} onClick={toggleDrawer(anchor, true)}>
+         <Button style={{
+          position:"absolute", 
+          top:"10px", left:"10px",
+           color: 'silver',
+            zIndex: '999'
+            }} onClick={toggleDrawer(anchor, true)}>
             <MenuIcon/></Button>
 
           <Drawer

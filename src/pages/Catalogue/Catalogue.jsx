@@ -13,8 +13,10 @@ export default function Catalogue() {
  const [ productItems, setProductItems ] = useState([])
  const [ activeCat, setActiveCat ] = useState('')
  const [ cart, setCart ] = useState(null)
+ const [ currentPage, setCurrentPage ] = useState(1)
  const categoriesRef = useRef([])
  const navigate = useNavigate()
+ const itemsPerPage = 10
 
  useEffect(function() {
      (async function() {
@@ -43,6 +45,12 @@ async function handleCheckout() {
   navigate('/orders')
 }
 
+function handlePageChange(event, newPage) {
+  setCurrentPage(newPage)
+}
+
+const startIndex = (currentPage - 1) * itemsPerPage
+const endIndex = startIndex + itemsPerPage
   
     return (
       <>
@@ -53,15 +61,12 @@ async function handleCheckout() {
                     setActiveCat={setActiveCat}
                 />
        <Stack spacing={2}>
-      <Pagination count={productItems.length} color="primary" />
+      <Pagination count={Math.ceil(productItems.length / itemsPerPage)} page={currentPage} onChange={handlePageChange} color="primary" />
     </Stack>
                 <CatalogueList
-                productItems={productItems.filter(product => product.category.name === activeCat)}
+                productItems={productItems.filter(product => product.category.name === activeCat).slice(startIndex, endIndex)}
                 handleAddToOrder={handleAddToOrder}
             />
       </>
     )
 }
-      
-        
-      

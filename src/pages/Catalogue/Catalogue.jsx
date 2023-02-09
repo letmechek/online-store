@@ -16,7 +16,7 @@ export default function Catalogue() {
  const [ currentPage, setCurrentPage ] = useState(1)
  const categoriesRef = useRef([])
  const navigate = useNavigate()
- const itemsPerPage = 10
+ const itemsPerPage = 6
 
  useEffect(function() {
      (async function() {

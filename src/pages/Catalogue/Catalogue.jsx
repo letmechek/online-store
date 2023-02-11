@@ -56,16 +56,20 @@ const endIndex = startIndex + itemsPerPage
       <>
             <OrderDetail order={cart} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout}/>
         <CategoryList
-                    categories={categoriesRef.current}
-                    activeCat={activeCat}
-                    setActiveCat={setActiveCat}
-                />
+              categories={categoriesRef.current}
+              activeCat={activeCat}
+              setActiveCat={setActiveCat}
+          />
        <Stack spacing={2}>
-      <Pagination count={Math.ceil(productItems.length / itemsPerPage)} page={currentPage} onChange={handlePageChange} color="primary" />
-    </Stack>
-                <CatalogueList
-                productItems={productItems.filter(product => product.category.name === activeCat).slice(startIndex, endIndex)}
-                handleAddToOrder={handleAddToOrder}
+          <Pagination 
+              count={Math.ceil(productItems.filter(product => product.category.name === activeCat).length / itemsPerPage)} 
+              page={currentPage} 
+              onChange={handlePageChange} 
+              color="primary" />
+        </Stack>
+          <CatalogueList
+            productItems={productItems.filter(product => product.category.name === activeCat).slice(startIndex, endIndex)}
+            handleAddToOrder={handleAddToOrder}
             />
       </>
     )

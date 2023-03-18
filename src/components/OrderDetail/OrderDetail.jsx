@@ -1,12 +1,7 @@
-
-
-
-
-
 import './OrderDetail.css';
 import LineItem from '../LineItem/LineItem';
 import { useState } from 'react';
-// Used to display the details of any order, including the cart (unpaid order)
+
 export default function OrderDetail({ order, handleChangeQty, handleCheckout }) {
   const [navbarOpen, setNavbarOpen] = useState(false);
   

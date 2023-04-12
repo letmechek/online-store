@@ -1,32 +1,26 @@
-<h1> Sam's Streetwear </h1>
+# Sam's Streetwear
 
-<img width="319" alt="Screen Shot 2022-12-01 at 12 10 54 PM" src="https://user-images.githubusercontent.com/106210761/205349868-f0c2755f-6855-4bae-9499-96e5476f3638.png">
+![Screenshot of Sam's Streetwear](https://user-images.githubusercontent.com/106210761/205349868-f0c2755f-6855-4bae-9499-96e5476f3638.png)
 
 A Full-Stack Ecommerce App 
 
-<h1>Key Features </h1>
-<ul>
-  <li>Full Crud Shopping Cart</li>
-</ul>
+## Key Features 
+- Full CRUD Shopping Cart
+- User authentication and authorization
+- Admin dashboard for managing products and orders
 
-<h1>Deployed App</h1>
-<li>deployed with heroku = <a href=https://sams-streetwear.herokuapp.com>Sams StreetWear</a></li>
+## Deployed App
+- Deployed on Heroku at https://sams-streetwear.herokuapp.com
 
+## Technologies Used 
+- MongoDB and Mongoose for database management
+- Express.js for the back-end server
+- React.js for the front-end user interface
+- Node.js for the back-end JavaScript runtime
+- JavaScript, HTML, and CSS for coding and styling
 
-<h1>Technologies Used </h1>
-<ul>
-  <li>MongoDB/Mongoose</li>
-  <li>Express.js</li>
-  <li>React.js</li>
-  <li>Node.js</li>
-  <li>JavaScript</li>
-  <li>HTML</li>
-  <li>CSS</li>
+## Future Enhancements
+- Payment processing integration
+- Mobile-friendly layout for better usability on smaller devices
 
-</ul>
-
-<h1>Future Enhancements</h1>
-<ul>
-  <li>Accept Payments</li>
-  <li>mobile friendly layout</li>
-</ul>
+Thank you for checking out Sam's Streetwear!

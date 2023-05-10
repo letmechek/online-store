@@ -8,6 +8,7 @@ require('dotenv').config()
 require('./config/database')
 
 const app = express();
+// const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
 
 app.use(logger('dev'));
 app.use(express.json());

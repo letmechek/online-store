@@ -8,7 +8,7 @@ export default function CatalogueListItem({ productItem, handleAddToOrder }) {
     <div className="row">
       <div className="el-wrapper">
         <div className="box-up">
-      <img className='img' src={productItem.image} alt={productItem.name}/>
+      <img className='img' src={productItem.image} alt={productItem.name} style={{height:'80%',width:'80%'}}/>
       <div className="img-info">
             <div className="info-inner">
             <Link to={productItem._id}><span className="p-name">{productItem.name}</span></Link>

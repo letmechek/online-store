@@ -35,8 +35,7 @@ export default function App() {
           <Route path='/signup' element={<SignUpForm setUser={setUser}/>} />
           <Route path='/' element={<LoginForm setUser={setUser}/>} />
         </Routes>
-        // <AuthPage setUser={setUser}/>
-        // <SignUpForm />
+      
       }
     </main>
   );

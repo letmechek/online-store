@@ -72,7 +72,7 @@ const Product = require('./models/product');
     {name: 'Floral print midi skirt', image: '/images/26w.jpeg', category: categories[1], price: 145},
     {name: 'Burgundy fedora hat', image: '/images/27w.jpeg', category: categories[1], price: 145},
     {name: 'Pink wool beret', image: '/images/28w.jpeg', category: categories[1], price: 135},
-    {name: 'Gray turtleneck sweater dress', image: '/images/29w.jpeg', category: categories[1], price: 255},
+    {name: 'Gray turtleneck sweater dress', image: '/images/28w.jpeg', category: categories[1], price: 255},
     {name: 'loose skirt', image: '/images/baggyskirt.jpeg', category: categories[1], price: 135},
     {name: 'red dress', image: '/images/red.jpeg', category: categories[1], price: 255},
   ]);

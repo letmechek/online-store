@@ -1,35 +1,32 @@
 import React, { useState } from "react";
 import ChatModal from "./ChatModal";
+import Fab from "@mui/material/Fab";
+import ChatIcon from "@mui/icons-material/Chat";
 
 function ChatSupport() {
   const [showModal, setShowModal] = useState(false);
 
   const handleClick = () => {
-    setShowModal(true);
+    setShowModal(!showModal);
   };
 
   return (
     <>
-      <div
+      <Fab
+        color="white"
+        aria-label="chat"
         onClick={handleClick}
         style={{
           position: "fixed",
           bottom: "20px",
           right: "20px",
-          backgroundColor: "blue",
-          color: "white",
-          borderRadius: "50%",
-          width: "60px",
-          height: "60px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer"
         }}
       >
+        <ChatIcon />
+      </Fab>
         <i className="fa fa-comment" style={{ fontSize: "24px" }} />
-      </div>
-      {showModal && <ChatModal onClose={() => setShowModal(false)} />}
+      
+      {showModal && <ChatModal  />}
     </>
   );
 }

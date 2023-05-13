@@ -10,6 +10,7 @@ import Home from '../Home/Home';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Footer from '../../components/Footer/Footer';
+import ChatSupport from '../../components/ChatSupport/ChatSupport';
 
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             
           </Routes>
+          <ChatSupport/>
           <Footer />
         </>
         :

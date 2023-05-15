@@ -22,11 +22,12 @@ function ChatSupport() {
           right: "20px",
         }}
       >
+        
         <ChatIcon />
       </Fab>
         <i className="fa fa-comment" style={{ fontSize: "24px" }} />
       
-      {showModal && <ChatModal  />}
+      { showModal && <ChatModal  />}
     </>
   );
 }

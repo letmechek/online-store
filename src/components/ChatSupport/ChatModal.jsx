@@ -3,6 +3,7 @@ import Avatar from "@mui/material/Avatar";
 import SendIcon from "@mui/icons-material/Send";
 import { sendMessage } from "../../utilities/support-api";
 
+
 function ChatModal({ onClose }) {
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState([

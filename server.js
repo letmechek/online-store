@@ -13,13 +13,13 @@ const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
-
+app.use(cors())
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'build')))
 
 app.use(require('./config/checkToken'))
 
-app.use(cors())
+
 app.use('/api/users', require('./routes/api/users'))
 app.use('/api/products', require('./routes/api/products'))
 app.use('/v1/completions', require('./routes/api/support'))

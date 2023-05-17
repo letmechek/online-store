@@ -38,15 +38,15 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
           <>
             {lineItems}
             <section className="total">
-              {order.isPaid ?
-                <span className="right">TOTAL&nbsp;&nbsp;</span>
-                :
-                <button
-                  className="btn-checkout"
-                  onClick={handleCheckout}
-                  disabled={!lineItems.length}
-                >CHECKOUT</button>
-              }
+            {order.isPaid ? (
+                        <span className="right">TOTAL&nbsp;&nbsp;</span>
+                      ) : (
+                        <form action="/create-checkout-session" method="POST">
+                          <button type="submit" className="btn-checkout" disabled={!lineItems.length}>
+                            CHECKOUT
+                          </button>
+                        </form>
+                      )}
               <span>{order.totalQty}</span>
               <span className="right">${order.orderTotal.toFixed(2)}</span>
             </section>

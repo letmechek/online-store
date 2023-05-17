@@ -1,4 +1,4 @@
-const { default: Stripe } = require('stripe');
+
 const Order = require('../../models/order');
 
 

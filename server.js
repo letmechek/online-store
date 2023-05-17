@@ -23,9 +23,11 @@ app.use(require('./config/checkToken'))
 app.use('/api/users', require('./routes/api/users'))
 app.use('/api/products', require('./routes/api/products'))
 app.use('/v1/completions', require('./routes/api/support'))
-
-
+app.use('/create-checkout-session', require('./routes/api/checkout'))
+app.use('/api/orders/success', require('./routes/api/checkout'))
 app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'));
+
+
 
 
 app.get('/*', function(req, res) {

@@ -51,9 +51,9 @@
     max-width: 3%;
   } */
   
-  .sandwich1 {
+  /* .sandwich1 {
     max-width: 100%;
-  }
+  } */
 
   /* nav, a {
     background-color: white;
@@ -63,18 +63,9 @@
     
   } */
 
-  .navBar1 {
-    position: relative;
-    background-color: rgb(246, 246, 246);
-  }
   
-  .navBar1 button {
-    /* position: fixed; */
-    left: 95%;
-    top: 50px;
-    /* z-index: 10; */
-    cursor: pointer;
-  }
+  
+
   
   .menuNav1 {
     overflow-y: scroll;

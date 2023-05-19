@@ -22,8 +22,8 @@ async function createSession(req, res) {
           },
         ],
         mode: 'payment',
-        success_url: 'http://localhost:3000/success',
-        cancel_url: 'http://localhost:3000/cancel',
+        success_url: 'https://sams-streetwear.herokuapp.com//success',
+        cancel_url: 'https://sams-streetwear.herokuapp.com//cancel',
       });
   
       res.redirect(303, session.url);

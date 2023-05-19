@@ -25,7 +25,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
   return (
     <nav>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <IconButton aria-label="Cart" onClick={handleToggle}sx={{left:'95%',marginTop:'1%'}}>
+        <IconButton aria-label="Cart" onClick={handleToggle}sx={{left:'89%',marginTop:'2%'}}>
           <Badge badgeContent={order.totalQty} color="primary">
             <ShoppingCart />
           </Badge>

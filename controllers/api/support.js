@@ -15,7 +15,7 @@ const openai = new OpenAIApi(configuration);
       model: "text-davinci-003",
       prompt: message,
       temperature: 0,
-      max_tokens: 7,
+      max_tokens: 14,
     });
     const reply = response.data.choices[0].text;
     

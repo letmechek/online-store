@@ -41,8 +41,15 @@ async function handleChangeQty(productId, newQty) {
 }
 
 async function handleCheckout() {
-  await ordersAPI.checkout()
-  navigate('/orders')
+ try{
+    const session = await ordersAPI.checkout()
+    navigate(session.url)
+
+ } catch(err){
+    navigate('/cancel')
+    console.log(err)
+ }
+ 
 }
 
 function handlePageChange(event, newPage) {

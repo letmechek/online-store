@@ -6,7 +6,7 @@ const lineItemSchema = new Schema({
     qty: { type: Number, default: 1 },
     product: productSchema
 }, {
-    timestamps: true,
+    // timestamps: true,
     toJSON: { virtuals: true }
 })
 

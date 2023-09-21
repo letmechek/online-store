@@ -63,8 +63,9 @@ const endIndex = startIndex + itemsPerPage
   
     return (
       <>
-            <OrderDetail order={cart} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout}/>
-        <CategoryList
+{cart !== null && (
+        <OrderDetail order={cart} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout} />
+      )}        <CategoryList
               categories={categoriesRef.current}
               activeCat={activeCat}
               setActiveCat={setActiveCat}

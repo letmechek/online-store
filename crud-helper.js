@@ -11,3 +11,5 @@ const Order = require('./models/order');
 // Local variables will come in handy for holding retrieved documents
 let user, product, category, order;
 let users, products, categories, orders;
+
+console.log(products)

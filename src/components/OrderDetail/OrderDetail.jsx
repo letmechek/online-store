@@ -37,14 +37,15 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout,  }
 
 
 
-  const lineItems = order.lineItems.map((product) => (
+  const lineItems = order ? order.lineItems.map((product) => (
     <LineItem
       lineItem={product}
       isPaid={order.isPaid}
       key={product._id}
       handleChangeQty={handleChangeQty}
     />
-  ));
+  )) : null;
+  
 
   const handleToggle = () => {
     setNavbarOpen(!navbarOpen);

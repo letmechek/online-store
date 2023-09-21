@@ -6,34 +6,34 @@ import axios from 'axios';
 import LineItem from '../LineItem/LineItem';
 import { useNavigate } from 'react-router-dom';
 
-const KEY = 'pk_test_51Mn7N6AzQHcVF6axcfUSnaT5DYwpyKJLRGKslB6IrZU3D0UBloFiCVh0llcOrxOZcATYQFfYlevXGKou2IhRC4Nu0051R5XXTi'
+// const KEY = 'pk_test_51Mn7N6AzQHcVF6axcfUSnaT5DYwpyKJLRGKslB6IrZU3D0UBloFiCVh0llcOrxOZcATYQFfYlevXGKou2IhRC4Nu0051R5XXTi'
 export default function OrderDetail({ order, handleChangeQty, handleCheckout,  }) {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [stripeToken, setStripeToken] = useState(null);
+  // const [stripeToken, setStripeToken] = useState(null);
   const Navigate = useNavigate()
   
-  useEffect(() => {
-		const makeRequest = async () => {
-			try {
-				const response = await axios.post(
-					'http://localhost:3000/api/checkout/payment',
-					{
-						tokenId: stripeToken.id,
-						amount: order.orderTotal.toFixed(2) * 100,
-					}
-				)
-				console.log(response.data)
-				Navigate("/success", {
-					state: { stripeData: response.data, products: order},
-				})
+  // useEffect(() => {
+	// 	const makeRequest = async () => {
+	// 		try {
+	// 			const response = await axios.post(
+	// 				'http://localhost:3000/api/checkout/payment',
+	// 				{
+	// 					tokenId: stripeToken.id,
+	// 					amount: order.orderTotal.toFixed(2) * 100,
+	// 				}
+	// 			)
+	// 			console.log(response.data)
+	// 			Navigate("/success", {
+	// 				state: { stripeData: response.data, products: order},
+	// 			})
 				
-			} catch (err) {
-				console.log(err)
-			}
-		}
-		stripeToken && makeRequest()
-	}, [stripeToken, order.orderTotal.toFixed(2), Navigate])
-  if (!order) return null;
+	// 		} catch (err) {
+	// 			console.log(err)
+	// 		}
+	// 	}
+	// 	stripeToken && makeRequest()
+	// }, [stripeToken, order.orderTotal.toFixed(2), Navigate])
+  // if (!order) return null;
 
 
 
@@ -49,10 +49,10 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout,  }
   const handleToggle = () => {
     setNavbarOpen(!navbarOpen);
   };
-  const onToken = (token) => {
-		setStripeToken(token)
-	}
-	console.log(stripeToken)
+  // const onToken = (token) => {
+	// 	setStripeToken(token)
+	// }
+	// console.log(stripeToken)
 
   
   return (
@@ -91,16 +91,17 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout,  }
                           TOTAL
                         </Typography>
                       ) : (
-                        <StripeCheckout
-                          name="Sams StreetWear"
-                          image="https://i.ibb.co/JxgT8GP/LDA-Logo-Blue2.png"
-                          billingAddress
-                          shippingAddress
-                          description={`Your total is $${order.orderTotal.toFixed(2)}`}
-                          amount={order.orderTotal.toFixed(2) * 100}
-                          token={onToken}
-                          stripeKey={KEY}
-                        >
+                        // <StripeCheckout
+                          // name="Sams StreetWear"
+                          // image="https://i.ibb.co/JxgT8GP/LDA-Logo-Blue2.png"
+                          // billingAddress
+                          // shippingAddress
+                          // description={`Your total is $${order.orderTotal.toFixed(2)}`}
+                          // amount={order.orderTotal.toFixed(2) * 100}
+                          // token={onToken}
+                          // stripeKey={KEY}
+                        // >
+                        <form action="/create-checkout-session" method="POST">
                           <Button
                             type="submit"
                             variant="contained"
@@ -109,7 +110,8 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout,  }
                           >
                             CHECKOUT
                           </Button>
-                      </StripeCheckout>
+                          </form>
+                      // {/* </StripeCheckout> */}
                       )}
                       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                         <Typography variant="body2">{order.totalQty}</Typography>

@@ -12,6 +12,7 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 import Footer from '../../components/Footer/Footer';
 import ChatSupport from '../../components/ChatSupport/ChatSupport';
 import Cancel from '../../components/OrderSucess/Cancel';
+import OrderDetail from '../../components/OrderDetail/OrderDetail';
 
 
 export default function App() {
@@ -23,13 +24,10 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            
-            
             <Route path="/products" element={<Catalogue user={user} setUser={setUser} />} />
             <Route path="/orders" element={<OrderHistoryPage  />} />
             <Route path="/" element={<Home />} />
-            <Route path='/cancel' element={<Cancel />} />
-            
+            <Route path='/cancel' element={<Cancel />} /> 
           </Routes>
           <ChatSupport/>
           <Footer />

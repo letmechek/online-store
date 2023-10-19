@@ -24,6 +24,8 @@ export default function Catalogue() {
          categoriesRef.current = [...new Set(products.map(product => product.category.name))]
          setProductItems(products)
          setActiveCat(categoriesRef.current[0])
+         console.log(categoriesRef)
+
      })();
      (async function() {
          const cart = await ordersAPI.getCart()
@@ -40,19 +42,18 @@ async function handleChangeQty(productId, newQty) {
   setCart(updatedCart)
 }
 
-async function handleCheckout() {
-//  try{
-//     const session = await ordersAPI.checkout()
-//     navigate(session.url)
 
-//  } catch(err){
-//     navigate('/cancel')
-//     console.log(err)
-//  }
-await ordersAPI.checkout()
-navigate('/orders')
- 
-}
+const orderId = cart ? cart._id : null
+  async function handleCheckout(orderId) {
+    try {
+      const response = await ordersAPI.checkout(orderId);
+      console.log(response.sessionUrl)
+      window.location.href = response.sessionUrl
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
 
 function handlePageChange(event, newPage) {
   setCurrentPage(newPage)
@@ -63,9 +64,10 @@ const endIndex = startIndex + itemsPerPage
   
     return (
       <>
-{cart !== null && (
+      {cart !== null && (
         <OrderDetail order={cart} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout} />
-      )}        <CategoryList
+      )}       
+       <CategoryList
               categories={categoriesRef.current}
               activeCat={activeCat}
               setActiveCat={setActiveCat}

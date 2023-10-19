@@ -7,7 +7,6 @@ export default function AuthPage({ setUser }) {
     const [showSignup, setShowSignup] = useState(false)
     return (
         <main>
-            
            <div className='auth'> 
             {showSignup ? <SignUpForm setUser={setUser} /> :
             <LoginForm setUser={setUser} />}

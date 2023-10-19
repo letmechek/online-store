@@ -46,6 +46,14 @@
     top: 50vh;
     font-size: 2vmin;
   }
+  .order-detail {
+    position: absolute; /* Position it absolutely so it can overlap other content */
+    top: 0; /* Adjust top position as needed */
+    left: 0; /* Adjust left position as needed */
+    z-index: 10; /* Set a high z-index value to make it overlap other content */
+    /* Other CSS styles for your nav element */
+    background-color: white;
+  }
 
   /* .sandwichbtn1 {
     max-width: 3%;

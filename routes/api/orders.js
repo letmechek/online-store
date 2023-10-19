@@ -8,7 +8,7 @@ router.get('/cart', ordersCtrl.cart);
 // POST /api/orders/cart/items/:id
 router.post('/cart/products/:id', ordersCtrl.addToCart,ensureLoggedIn);
 // POST /api/orders/cart/checkout
-router.post('/cart/checkout', ordersCtrl.checkout);
+router.post('/create-checkout-session/:orderId', ordersCtrl.checkout);
 // POST /api/orders/cart/qty
 router.put('/cart/qty', ordersCtrl.setItemQtyInCart, ensureLoggedIn);
 

@@ -29,6 +29,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout,  }
 
   
   return (
+    
     <nav >
       <Box sx={{ display: 'flex', alignItems: 'center' }} >
         <IconButton aria-label="Cart" onClick={handleToggle}sx={{left:'89%',marginTop:'2%', zIndex: 11}}>
@@ -61,15 +62,14 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout,  }
                     {lineItems}
                     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', mt: 2 }}>
                       {order.isPaid ? (
-                        <Typography variant="body2" sx={{ textAlign: 'right' }}>
+                        <Typography variant="body2" sx={{ textAlign: 'right' }} >
                           TOTAL
                         </Typography>
                       ) : (
                           <Button
                             type="submit"
-                            variant="contained"
+                            className='bg-red-500'
                             disabled={!lineItems.length}
-                            sx={{ backgroundColor: '#ff4081', color: 'white' }}
                             onClick={() => handleCheckout(order._id)}
                           >
                             CHECKOUT

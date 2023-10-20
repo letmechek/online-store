@@ -38,36 +38,45 @@ export default function TemporaryDrawer({user, setUser}) {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        
-        <ListItem disablePadding>
+    sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+    role="presentation"
+    onClick={toggleDrawer(anchor, false)}
+    onKeyDown={toggleDrawer(anchor, false)}
+  >
+    <List>
+      <ListItem disablePadding>
         <ListItemButton>
-        Welcome, {user.name}
+          Welcome, {user.name}
         </ListItemButton>
+      </ListItem>
+    </List>
+    <Divider />
+    <List>
+      {[
+        <ListItemButton component={Link} to="/">
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary="Home" />
+        </ListItemButton>,
+        <ListItemButton component={Link} to="/products">
+          <ListItemText primary=" Catalogue" />
+        </ListItemButton>,
+        <ListItemButton component={Link} to="" onClick={handleLogOut}>
+          <ListItemIcon>
+            <LogoutIcon />
+          </ListItemIcon>
+          <ListItemText primary="Logout" />
+        </ListItemButton>,
+      ].map((item, index) => (
+        <ListItem key={index} disablePadding>
+          {item}
         </ListItem>
-      </List>
-      <Divider />
-      <List>
-        {[
-          <Link to="/"><HomeIcon/></Link>, 
-          <Link to="/products">Catalogue</Link>, 
-          <Link to="" onClick={handleLogOut}><LogoutIcon/></Link>
-        ].map((item, index) => (
-          <ListItem key={index} disablePadding>
-            <ListItemButton>
-              {item}
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      
-    </Box>
-  );
+      ))}
+    </List>
+  </Box>
+);
+
 
   return (
     <div>

@@ -37,32 +37,33 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout,  }
             <ShoppingCart />
           </Badge>
         </IconButton>
-        <Box className='order-detail'>
+       
         {navbarOpen && (
+        <div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+  <div class="fixed inset-0 overflow-hidden">
+  <div class="absolute inset-0 overflow-hidden">
+  <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+  <div class="pointer-events-auto w-screen max-w-md">
+          <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+              <div class="flex items-start justify-between">
+                <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Shopping cart</h2>
+                <div class="ml-3 flex h-7 items-center">
+                
+                </div>
+              </div>
           <div  >
             <div>
-              <div >
-                {order.isPaid ? (
-                  <>
-                    <Typography variant="body1">ORDER</Typography>
-                    <Typography variant="subtitle2" className="smaller">
-                      {order.orderId}
-                    </Typography>
-                  </>
-                ) : (
-                  <Typography variant="body1">NEW ORDER</Typography>
-                )}
-                <Typography variant="body2">
-                  {new Date(order.updatedAt).toLocaleDateString()}
-                </Typography>
-              </div>
-              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 2 }}>
+             
+            <div class="mt-8">
+                <div class="flow-root">
                 {lineItems.length ? (
                   <>
                     {lineItems}
-                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', mt: 2 }}>
-                      {order.isPaid ? (
-                        <Typography variant="body2" sx={{ textAlign: 'right' }} >
+                    <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                      {/* {order.isPaid ? (
+                        <Typography  >
                           TOTAL
                         </Typography>
                       ) : (
@@ -74,26 +75,52 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout,  }
                           >
                             CHECKOUT
                           </Button>
-                      )}
-                      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-                        <Typography variant="body2">{order.totalQty}</Typography>
-                        <Typography variant="body2" sx={{ textAlign: 'right' }}>
-                          ${order.orderTotal.toFixed(2)}
-                        </Typography>
-                      </Box>
-                    </Box>
+                      )} */}
+                      <div class="flex justify-between text-base font-medium text-gray-900">
+                         <p>Subtotal</p> 
+                        <p> ${order.orderTotal.toFixed(2)}</p>
+                       </div>
+                       <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                       <div class="mt-6">
+                      <a onClick={() => handleCheckout(order._id)} class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+                    </div>
+                    <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
+                <p>
+                  or
+                  <Link to="/products" class="font-medium text-indigo-600 hover:text-indigo-500">
+                    Continue Shopping
+                    <span aria-hidden="true"> &rarr;</span>
+                  </Link>
+                </p>
+              </div>
+                   </div>
                   </>
                 ) : (
                   <Typography variant="body2" className="hungry"sx={{alignItems:'center'}}>
                     Cart is empty?
+                    <Link to="/products" class="font-medium text-indigo-600 hover:text-indigo-500">
+                    Continue Shopping
+                    <span aria-hidden="true"> &rarr;</span>
+                  </Link>
                   </Typography>
                 )}
-              </Box>
+                </div>
+                </div>
+            
             </div>
           </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+     
         )}
         </Box>
-      </Box>
+     
     </nav>
   );
 }
+

@@ -1,0 +1,12 @@
+.watchesTypes img {
+    height: 300px; /* Set a specific height */
+    width: 300px; /* Maintain the aspect ratio */
+    object-fit: cover; /* Maintain the image aspect ratio and crop to cover the container */
+    transition: 0.4s; /* For a smooth transition */
+    border-radius: 10%
+  }
+  .watchesTypes img:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 10px 30px 0 #ddddddb8;
+  }
+  

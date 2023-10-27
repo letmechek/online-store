@@ -2,9 +2,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { getUser } from "../../utilities/users-service";
-import AuthPage from "../AuthPage/AuthPage";
 import Catalogue from "../Catalogue/Catalogue";
-import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage";
 import NavBar from "../../components/NavBar/NavBar";
 import Home from "../Home/Home";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
@@ -12,7 +10,6 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import Footer from "../../components/Footer/Footer";
 import ChatSupport from "../../components/ChatSupport/ChatSupport";
 import Cancel from "../../components/OrderSucess/Cancel";
-import OrderDetail from "../../components/OrderDetail/OrderDetail";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -27,7 +24,7 @@ export default function App() {
               path="/products"
               element={<Catalogue user={user} setUser={setUser} />}
             />
-            <Route path="/orders" element={<OrderHistoryPage />} />
+           
             <Route path="/" element={<Home />} />
             <Route path="/cancel" element={<Cancel />} />
           </Routes>

@@ -17,6 +17,7 @@ import { useState, useEffect } from "react";
 import OrderDetail from "../OrderDetail/OrderDetail";
 import * as ordersAPI from "../../utilities/orders-api";
 import { Badge, Box } from "@mui/material";
+import logo from '../../Assets/Images/logo.png'
 
 export default function TemporaryDrawer({ user, setUser, handleToggle }) {
   const [cart, setCart] = useState(null);
@@ -29,9 +30,9 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
         setCart(cart);
       })();
     },
-    [cart]
+    []
   );
-
+ 
   async function handleChangeQty(productId, newQty) {
     const updatedCart = await ordersAPI.setItemQtyInCart(productId, newQty);
     setCart(updatedCart);
@@ -126,6 +127,11 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
           >
             <MenuIcon />
           </Button>
+                    {/* <img
+                        className="head"
+                        src={logo}
+                        alt="Your Company"
+                    /> */}
           <Button
             style={{
               position: "fixed",

@@ -1,31 +1,38 @@
 // Rewrite the SignUpForm as a function component
-import { useState } from 'react'
-import { signUp } from '../../utilities/users-service'
-import * as React from 'react';
-import {useNavigate} from 'react-router-dom'
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from "react";
+import { signUp } from "../../utilities/users-service";
+import * as React from "react";
+import { useNavigate } from "react-router-dom";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://letmechek.github.io/portfolio/" target='_blank'>
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link
+        color="inherit"
+        href="https://letmechek.github.io/portfolio/"
+        target="_blank"
+      >
         Portfolio
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -33,41 +40,40 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUpForm({ setUser }) {
-    const navigate = useNavigate()
-    const [formData, setFormData] = useState({
-                name: '',
-                email: '',
-                password: '',
-                confirm: '',
-                error: ''
-            })
-            // const disable = formData.password !== formData.confirm;
-        
-            function handleChange(evt) {
-                setFormData({
-                    ...formData,
-                    [evt.target.name]: evt.target.value,
-                    error: ''
-                })
-            }
-        
-            async function handleSubmit(evt) {
-                evt.preventDefault()
-                try {
-                    const formDataCopy = {...formData}
-                    delete formDataCopy.error
-                    delete formDataCopy.confirm
-                    const user = await signUp(formDataCopy)
-                    setUser(user)
-                    navigate('/');
-                } catch {
-                    setFormData({
-                        ...formData,
-                        error: 'Sign Up Failed - Try Again'
-                    })
-                }
-            }
-        
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirm: "",
+    error: "",
+  });
+
+  function handleChange(evt) {
+    setFormData({
+      ...formData,
+      [evt.target.name]: evt.target.value,
+      error: "",
+    });
+  }
+
+  async function handleSubmit(evt) {
+    evt.preventDefault();
+    try {
+      const formDataCopy = { ...formData };
+      delete formDataCopy.error;
+      delete formDataCopy.confirm;
+      const user = await signUp(formDataCopy);
+      setUser(user);
+      navigate("/");
+    } catch {
+      setFormData({
+        ...formData,
+        error: "Sign Up Failed - Try Again",
+      });
+    }
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -75,18 +81,23 @@ export default function SignUpForm({ setUser }) {
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
+          >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={12}>
                 <TextField
@@ -98,21 +109,10 @@ export default function SignUpForm({ setUser }) {
                   label="name"
                   autoFocus
                   value={formData.name}
-                onChange={handleChange}
+                  onChange={handleChange}
                 />
               </Grid>
-              {/* <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                  value={formData.name}
-                onChange={handleChange}
-                />
-              </Grid> */}
+
               <Grid item xs={12}>
                 <TextField
                   required
@@ -138,12 +138,6 @@ export default function SignUpForm({ setUser }) {
                   onChange={handleChange}
                 />
               </Grid>
-              {/* <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid> */}
             </Grid>
             <Button
               type="submit"
@@ -155,11 +149,14 @@ export default function SignUpForm({ setUser }) {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link onClick={()=> navigate('/')} variant="body2"
-                 sx={{
-                  cursor: 'pointer',
-                   textDecoration: 'none' 
-                   }}>
+                <Link
+                  onClick={() => navigate("/")}
+                  variant="body2"
+                  sx={{
+                    cursor: "pointer",
+                    textDecoration: "none",
+                  }}
+                >
                   Already have an account? Sign in
                 </Link>
               </Grid>
@@ -171,6 +168,3 @@ export default function SignUpForm({ setUser }) {
     </ThemeProvider>
   );
 }
-
-
-

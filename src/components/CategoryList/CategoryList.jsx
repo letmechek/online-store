@@ -16,6 +16,6 @@ export default function CategoryList({ categories, activeCat, setActiveCat }) {
   ));
   
   return (
-    <ul className="mt-2 text-gray-700 text-lg text-center font-semibold -8 px-6 py-5">{cats}</ul>
+    <ul className="mt-8 text-gray-700 text-lg text-center font-semibold -8 px-6 py-5">{cats}</ul>
   );
 }

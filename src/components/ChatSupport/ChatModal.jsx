@@ -3,7 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import SendIcon from "@mui/icons-material/Send";
 import { sendMessage } from "../../utilities/support-api";
 
-
 function ChatModal({ onClose }) {
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState([
@@ -16,7 +15,7 @@ function ChatModal({ onClose }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await sendMessage(inputValue); 
+      const response = await sendMessage(inputValue);
       const reply = response.data.reply;
       setMessages([
         ...messages,
@@ -80,8 +79,7 @@ function ChatModal({ onClose }) {
                   margin: 0,
                   padding: "5px 10px",
                   borderRadius: "10px",
-                  background:
-                    message.sender === "user" ? "#e5f2ff" : "#f2f2f2",
+                  background: message.sender === "user" ? "#e5f2ff" : "#f2f2f2",
                   textAlign: "left",
                 }}
               >
@@ -91,19 +89,29 @@ function ChatModal({ onClose }) {
           ))}
         </div>
       </div>
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "row" }}>
+      <form
+        onSubmit={handleSubmit}
+        style={{ display: "flex", flexDirection: "row" }}
+      >
         <input
           type="text"
           value={inputValue}
           onChange={(event) => setInputValue(event.target.value)}
-          style={{ marginRight: "10px", flex: 1, height: "33px", marginTop: "21px" }}
+          style={{
+            marginRight: "10px",
+            flex: 1,
+            height: "33px",
+            marginTop: "21px",
+          }}
           placeholder="Type your message here"
         />
-        <button type="submit" style={{ border: "none", background: "none", cursor: "pointer" }}>
+        <button
+          type="submit"
+          style={{ border: "none", background: "none", cursor: "pointer" }}
+        >
           <SendIcon sx={{ color: "primary.main" }} />
         </button>
       </form>
-
     </div>
   );
 }

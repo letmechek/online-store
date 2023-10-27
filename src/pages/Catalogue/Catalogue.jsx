@@ -5,7 +5,6 @@ import * as productsAPI from '../../utilities/products-api'
 import * as ordersAPI from '../../utilities/orders-api'
 import CatalogueList from '../../components/CatalogueList/CatalogueList';
 import CategoryList from '../../components/CategoryList/CategoryList';
-import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
@@ -37,36 +36,14 @@ export default function Catalogue() {
   setCart(updatedCart)
 }
 
-async function handleChangeQty(productId, newQty) {
-  const updatedCart = await ordersAPI.setItemQtyInCart(productId, newQty)
-  setCart(updatedCart)
-}
-
-
-const orderId = cart ? cart._id : null
-  async function handleCheckout(orderId) {
-    try {
-      const response = await ordersAPI.checkout(orderId);
-      console.log(response.sessionUrl)
-      window.location.href = response.sessionUrl
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-
 function handlePageChange(event, newPage) {
   setCurrentPage(newPage)
 }
 
 const startIndex = (currentPage - 1) * itemsPerPage
 const endIndex = startIndex + itemsPerPage
-  
     return (
       <>
-      {cart !== null && (
-        <OrderDetail order={cart} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout} />
-      )}       
        <CategoryList
               categories={categoriesRef.current}
               activeCat={activeCat}

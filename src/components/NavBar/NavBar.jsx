@@ -115,7 +115,7 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
         <React.Fragment key={anchor}>
           <Button
             style={{
-              position: "absolute",
+              position: "fixed",
               top: "10px",
               left: anchor === "left" ? "10px" : "unset",
               right: anchor === "left" ? "unset" : "10px", // Opposite side
@@ -128,7 +128,7 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
           </Button>
           <Button
             style={{
-              position: "absolute",
+              position: "fixed",
               top: "10px",
               right: anchor === "left" ? "10px" : "unset",
               color: "silver",

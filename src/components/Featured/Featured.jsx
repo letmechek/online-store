@@ -26,7 +26,7 @@ export default function Featured() {
     <>
     <div className='bg-custom-tan'>
 
-          <h1 className="text-center text-gray-700 text-2xl font-bold pt-4">Feautured Products</h1>
+          <h1 className="text-center text-white text-3xl font-bold font-serif-display pt-4">Feautured Products</h1>
 
     <div className=' flex flex-wrap justify-center gap-4'>
 

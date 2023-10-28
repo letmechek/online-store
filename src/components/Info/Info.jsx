@@ -9,7 +9,7 @@ export default function Info() {
     return (
         <>
             <section className="watchesTypes bg-custom-tan">
-      <h1 className="text-center text-gray-700 text-2xl font-bold pt-4">SHOP BY BRAND</h1>
+      <h1 className="text-center text-white text-3xl font-bold font-serif-display pt-4">Shop By Category</h1>
       <Container className="p-5">
         <div className="flex flex-wrap justify-center gap-4">
           <Link to="/products" className="relative overflow-hidden group">

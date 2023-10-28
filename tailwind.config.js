@@ -5,9 +5,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'serif-display': ['"DM Serif Display"', 'serif']
+      },
       backgroundColor: {
         'custom-gray': 'rgba(245,245,245)',
-        'custom-tan': 'rgba(210,202,191)',
+        'custom-tan': '#EBE2D5',
       }
     },
   },

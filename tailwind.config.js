@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        'custom-yellow': '#FFDE5B',
+        'custom-gray': 'rgba(245,245,245)',
         'custom-tan': 'rgba(210,202,191)',
       }
     },

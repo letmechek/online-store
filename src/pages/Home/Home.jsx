@@ -8,7 +8,7 @@ import Info from '../../components/Info/Info';
 import Featured from '../../components/Featured/Featured';
 import coupon from '../../Assets/Images/coupon.png'
 import BrandsLogo from '../../components/BrandsLogo/BrandsLogo';
-
+import Testimonials from '../../components/Testimonials/Testimonials';
 export default function Home() {
   return (
     <>
@@ -21,6 +21,7 @@ export default function Home() {
     />
     <Featured />
     <BrandsLogo />
+    <Testimonials />
     </>
   )
 }

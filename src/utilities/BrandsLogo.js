@@ -1,11 +1,11 @@
-import Brand1 from "../Assets/Images/brand1.png";
-import Brand2 from "../Assets/Images/brand2.png";
-import Brand3 from "../Assets/Images/brand3.png";
-import Brand4 from "../Assets/Images/brand4.png";
-import Brand5 from "../Assets/Images/brand5.png";
-import Brand6 from "../Assets/Images/brand6.png";
-import Brand7 from "../Assets/Images/brand7.png";
-import Brand8 from "../Assets/Images/brand8.png";
+import Brand1 from "../Assets/Images/1.webp";
+import Brand2 from "../Assets/Images/2.webp";
+import Brand3 from "../Assets/Images/3.webp";
+import Brand4 from "../Assets/Images/4.webp";
+import Brand5 from "../Assets/Images/5.webp";
+import Brand6 from "../Assets/Images/6.png";
+import Brand7 from "../Assets/Images/th-removebg-preview.png";
+import Brand8 from "../Assets/Images/th-removebg-preview.png";
 
 export const Brands = [
     {
@@ -36,8 +36,8 @@ export const Brands = [
       id: 7,
       src: Brand7
     },
-    {
-      id: 8,
-      src: Brand8
-    }
+    // {
+    //   id: 8,
+    //   src: Brand8
+    // }
   ];

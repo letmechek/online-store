@@ -63,12 +63,14 @@ export default function Catalogue() {
           className="flex justify-end"
         />
       </Stack>
+      {/* <div className="p-2 mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"> */}
       <CatalogueList
         productItems={productItems
           .filter((product) => product.category.name === activeCat)
           .slice(startIndex, endIndex)}
         handleAddToOrder={handleAddToOrder}
       />
+      {/* </div> */}
       <Pagination
           count={Math.ceil(
             productItems.filter(

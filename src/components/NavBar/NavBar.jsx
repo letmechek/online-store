@@ -17,7 +17,7 @@ import { useState, useEffect } from "react";
 import OrderDetail from "../OrderDetail/OrderDetail";
 import * as ordersAPI from "../../utilities/orders-api";
 import { Badge, Box } from "@mui/material";
-import logo from '../../Assets/Images/logo.png'
+import logo from "../../Assets/Images/logo.png";
 
 export default function TemporaryDrawer({ user, setUser, handleToggle }) {
   const [cart, setCart] = useState(null);
@@ -30,9 +30,9 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
         setCart(cart);
       })();
     },
-    []
+    [cart]
   );
- 
+
   async function handleChangeQty(productId, newQty) {
     const updatedCart = await ordersAPI.setItemQtyInCart(productId, newQty);
     setCart(updatedCart);
@@ -119,29 +119,23 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
               position: "fixed",
               top: "10px",
               left: anchor === "left" ? "10px" : "unset",
-              right: anchor === "left" ? "unset" : "10px", // Opposite side
-              color: "silver",
+              right: anchor === "left" ? "unset" : "10px",
+              color: "#8B857D",
               zIndex: "999",
             }}
             onClick={toggleDrawer(anchor, true)}
           >
             <MenuIcon />
           </Button>
-                    {/* <img
-                        className="head"
-                        src={logo}
-                        alt="Your Company"
-                    /> */}
           <Button
             style={{
               position: "fixed",
               top: "10px",
               right: anchor === "left" ? "10px" : "unset",
-              color: "silver",
+              color: "#8B857D",
               zIndex: "999",
             }}
             onClick={() => {
-              // Toggle the visibility of the OrderDetail component
               setShowOrderDetail(!showOrderDetail);
             }}
           >

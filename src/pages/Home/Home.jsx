@@ -19,8 +19,8 @@ export default function Home() {
       alt="home"
       className="w-full h-auto object-contain"
     />
-    <Featured />
     <BrandsLogo />
+    <Featured />
     <Testimonials />
     </>
   )

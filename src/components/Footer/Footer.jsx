@@ -13,6 +13,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { grey } from "@mui/material/colors";
 
 function Copyright() {
   return (
@@ -33,8 +34,8 @@ export default function Footer() {
       sx={{
         display: "flex",
         flexDirection: "column",
-
-        backgroundColor: (theme) => theme.palette.grey[200],
+        color: "white",
+        backgroundColor: 'black',
       }}
     >
       <CssBaseline />
@@ -79,19 +80,20 @@ export default function Footer() {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-evenly",
+              
             }}
           >
             <IconButton>
-              <FacebookIcon />
+              <FacebookIcon color='primary' />
             </IconButton>
             <IconButton>
-              <TwitterIcon />
+              <TwitterIcon color='primary'/>
             </IconButton>
             <IconButton>
-              <InstagramIcon />
+              <InstagramIcon color='primary'/>
             </IconButton>
             <IconButton>
-              <PinterestIcon />
+              <PinterestIcon color='primary'/>
             </IconButton>
           </Box>
           <Box sx={{ mt: 2, textAlign: "center" }}>
@@ -100,7 +102,7 @@ export default function Footer() {
               id="newsletter"
               label="Enter email"
               variant="outlined"
-              sx={{ mt: 2 }}
+              sx={{ mt: 2 , backgroundColor: grey[900], borderRadius: '15px'}}
             />
             <Button variant="contained" color="primary" sx={{ mt: 2 }}>
               Subscribe
@@ -119,7 +121,7 @@ export default function Footer() {
       >
         <Container maxWidth="lg">
           <Typography variant="body2">
-            Copyright &copy; {new Date().getFullYear()} My Ecommerce Website
+            Copyright &copy; {new Date().getFullYear()} Sams StreetWear
           </Typography>
           <Typography variant="body2">All rights reserved</Typography>
         </Container>

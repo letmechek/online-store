@@ -17,7 +17,7 @@ export default function Home() {
     <img
       src={coupon}
       alt="home"
-      className="w-full  object-contain" style={{height: '20%'}}
+      className="bg-custom-tan w-full object-contain " style={{ maxHeight: '600px' }}
     />
     <BrandsLogo />
     <Featured />

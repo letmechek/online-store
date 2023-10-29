@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function CatalogueListItem({ productItem, handleAddToOrder }) {
   return (
-<div class="">
-{/* <div class="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border"> */}
+<div class=" shadow-xl rounded-lg">
   <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white h-96 rounded-xl bg-clip-border">
     <img
       src={productItem.image}

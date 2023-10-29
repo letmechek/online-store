@@ -30,7 +30,7 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
         setCart(cart);
       })();
     },
-    [cart]
+    []
   );
 
   async function handleChangeQty(productId, newQty) {
@@ -49,7 +49,7 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
     }
   }
 
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     top: false,
     left: false,
     bottom: false,

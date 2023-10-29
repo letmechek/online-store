@@ -17,7 +17,7 @@ export default function Home() {
     <img
       src={coupon}
       alt="home"
-      className="w-full h-auto object-contain"
+      className="w-full  object-contain" style={{height: '20%'}}
     />
     <BrandsLogo />
     <Featured />

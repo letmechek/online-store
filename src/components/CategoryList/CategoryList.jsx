@@ -1,21 +1,26 @@
 import './CategoryList.css';
 
 export default function CategoryList({ categories, activeCat, setActiveCat }) {
-  const cats = categories.map((cat) => (
+  const cats = categories.map((cat, index) => (
     <li
       key={cat}
-      className={`px-2 py-1 mx-2 rounded cursor-pointer ${
+      className={`category-card cursor-pointer ${
         cat === activeCat
-          ? 'bg-blue-700 text-white'
-          : 'hover:bg-indigo-100 text-blue-700'
+          ? 'active'
+          : 'inactive'
       }`}
       onClick={() => setActiveCat(cat)}
     >
       {cat}
     </li>
   ));
-  
+
   return (
-    <ul className="mt-20 text-gray-700 text-lg text-center font-semibold -8 px-6 py-5">{cats}</ul>
+    <div className="category-list">
+      <ul>
+        {cats}
+      </ul>
+    </div>
   );
 }
+

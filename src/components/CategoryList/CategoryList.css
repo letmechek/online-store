@@ -1,0 +1,29 @@
+.category-list {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .category-list ul {
+    list-style: none;
+    padding: 0;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .category-card {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .category-card.active {
+    background-color: #EBE2D5;
+    color: white;
+  }
+  
+  .category-card.inactive:hover {
+    background-color: #f0f0f0;
+  }
+  

@@ -11,6 +11,7 @@ const Product = require('./models/product');
   const categories = await Category.create([
       {name: 'man', sortOrder: 20},
       {name: 'woman', sortOrder: 10},
+      {name: 'baby', sortOrder: 30},
   ]);
 
   await Product.deleteMany({});
@@ -75,6 +76,7 @@ const Product = require('./models/product');
     {name: 'Gray turtleneck sweater dress', image: '/images/28w.jpeg', category: categories[1], price: 255},
     {name: 'loose skirt', image: '/images/baggyskirt.jpeg', category: categories[1], price: 135},
     {name: 'red dress', image: '/images/red.jpeg', category: categories[1], price: 255},
+    {name: 'baby onesie', image: '/images/red.jpeg', category: categories[2], price: 255},
   ]);
 
   console.log(products)

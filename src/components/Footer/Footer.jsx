@@ -34,8 +34,8 @@ export default function Footer() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        color: "white",
-        backgroundColor: 'black',
+        // color: "white",
+        backgroundColor:  (theme) => theme.palette.grey[100]
       }}
     >
       <CssBaseline />
@@ -102,7 +102,7 @@ export default function Footer() {
               id="newsletter"
               label="Enter email"
               variant="outlined"
-              sx={{ mt: 2 , backgroundColor: grey[900], borderRadius: '15px'}}
+              sx={{ mt: 2 , backgroundColor: grey[100], borderRadius: '15px'}}
             />
             <Button variant="contained" color="primary" sx={{ mt: 2 }}>
               Subscribe
@@ -114,7 +114,7 @@ export default function Footer() {
         sx={{
           px: 2,
           textAlign: "center",
-          backgroundColor: (theme) => theme.palette.grey[800],
+          backgroundColor: (theme) => theme.palette.grey[400],
           color: theme.palette.common.white,
           py: 3,
         }}

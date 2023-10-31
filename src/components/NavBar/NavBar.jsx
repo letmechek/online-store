@@ -42,7 +42,7 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
         setCart(cart);
       })();
     },
-    []
+    [cart]
   );
 
   async function handleChangeQty(productId, newQty) {

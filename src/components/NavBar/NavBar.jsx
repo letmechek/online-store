@@ -12,16 +12,28 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import LogoutIcon from "@mui/icons-material/Logout";
 import HomeIcon from "@mui/icons-material/Home";
-import { ShoppingCart } from "@mui/icons-material";
-import { useState, useEffect } from "react";
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';import { useState, useEffect } from "react";
 import OrderDetail from "../OrderDetail/OrderDetail";
 import * as ordersAPI from "../../utilities/orders-api";
 import { Badge, Box } from "@mui/material";
-import logo from "../../Assets/Images/logo.png";
 
 export default function TemporaryDrawer({ user, setUser, handleToggle }) {
   const [cart, setCart] = useState(null);
   const [showOrderDetail, setShowOrderDetail] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setVisible(
+        (currentScrollPos < 10 || currentScrollPos < prevScrollPos));
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos, visible]);
 
   useEffect(
     function () {
@@ -111,6 +123,8 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
   );
 
   return (
+    <>
+      {visible && (
     <div>
       {["left"].map((anchor) => (
         <React.Fragment key={anchor}>
@@ -122,10 +136,11 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
               right: anchor === "left" ? "unset" : "10px",
               color: "#8B857D",
               zIndex: "999",
+              fontSize: "100px"
             }}
             onClick={toggleDrawer(anchor, true)}
           >
-            <MenuIcon />
+            <MenuIcon sx={{ fontSize: 30 }}/>
           </Button>
           <Button
             style={{
@@ -140,7 +155,7 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
             }}
           >
             <Badge badgeContent={cart ? cart.totalQty : 0} color="primary">
-              <ShoppingCart />
+              <ShoppingBagOutlinedIcon sx={{ fontSize: 30 }}/>
             </Badge>
           </Button>
           {showOrderDetail && cart !== null && (
@@ -160,5 +175,7 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
         </React.Fragment>
       ))}
     </div>
+      )}
+    </>
   );
 }

@@ -20,20 +20,6 @@ import { Badge, Box } from "@mui/material";
 export default function TemporaryDrawer({ user, setUser, handleToggle }) {
   const [cart, setCart] = useState(null);
   const [showOrderDetail, setShowOrderDetail] = useState(false);
-  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      setVisible(
-        (currentScrollPos < 10 || currentScrollPos < prevScrollPos));
-      setPrevScrollPos(currentScrollPos);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos, visible]);
 
   useEffect(
     function () {
@@ -124,7 +110,6 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
 
   return (
     <>
-      {visible && (
     <div>
       {["left"].map((anchor) => (
         <React.Fragment key={anchor}>
@@ -175,7 +160,6 @@ export default function TemporaryDrawer({ user, setUser, handleToggle }) {
         </React.Fragment>
       ))}
     </div>
-      )}
     </>
   );
 }

@@ -1,5 +1,4 @@
 import "./Catalogue.css";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import * as productsAPI from "../../utilities/products-api";
 import * as ordersAPI from "../../utilities/orders-api";
@@ -7,6 +6,8 @@ import CatalogueList from "../../components/CatalogueList/CatalogueList";
 import CategoryList from "../../components/CategoryList/CategoryList";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import ProductSort from "../../components/ProductSort/ProductSort";
+
 
 export default function Catalogue() {
   const [productItems, setProductItems] = useState([]);
@@ -14,7 +15,6 @@ export default function Catalogue() {
   const [cart, setCart] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const categoriesRef = useRef([]);
-  const navigate = useNavigate();
   const itemsPerPage = 6;
 
   useEffect(function () {
@@ -40,7 +40,13 @@ export default function Catalogue() {
   function handlePageChange(event, newPage) {
     setCurrentPage(newPage);
   }
-
+  const handleSortChange = (sortType) => {
+    if (sortType === "lowToHigh") {
+      setProductItems([...productItems.sort((a, b) => a.price - b.price)]);
+    } else if (sortType === "highToLow") {
+      setProductItems([...productItems.sort((a, b) => b.price - a.price)]);
+    }
+  };
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   return (
@@ -50,27 +56,16 @@ export default function Catalogue() {
         activeCat={activeCat}
         setActiveCat={setActiveCat}
       />
+
+            <ProductSort onSortChange={handleSortChange} />
       <Stack spacing={2}>
-        <Pagination
-          count={Math.ceil(
-            productItems.filter(
-              (product) => product.category.name === activeCat
-            ).length / itemsPerPage
-          )}
-          page={currentPage}
-          onChange={handlePageChange}
-          color="standard"
-          className="flex justify-end bg-custom-tan p-2"
-        />
       </Stack>
-      {/* <div className="p-2 mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"> */}
       <CatalogueList
         productItems={productItems
           .filter((product) => product.category.name === activeCat)
           .slice(startIndex, endIndex)}
         handleAddToOrder={handleAddToOrder}
       />
-      {/* </div> */}
       <Pagination
           count={Math.ceil(
             productItems.filter(
